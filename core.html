@@ -5,10 +5,10 @@
 <meta name="description" content="MONAI Core is the flagship library of Project MONAI, providing powerful capabilities for medical AI development. It features medical-specific image transforms, state-of-the-art models like UNETR for 3D segmentation, and advanced frameworks like Auto3DSeg for automated model selection.">
 <meta property="og:title" content="MONAI Core">
 <meta property="og:description" content="MONAI Core is the flagship library of Project MONAI, providing powerful capabilities for medical AI development. It features medical-specific image transforms, state-of-the-art models like UNETR for 3D segmentation, and advanced frameworks like Auto3DSeg for automated model selection.">
-<meta property="og:url" content="https://monai.io/core.html">
+<meta property="og:url" content="https://project-monai.github.io/core.html">
 <meta name="twitter:title" content="MONAI Core">
 <meta name="twitter:description" content="MONAI Core is the flagship library of Project MONAI, providing powerful capabilities for medical AI development. It features medical-specific image transforms, state-of-the-art models like UNETR for 3D segmentation, and advanced frameworks like Auto3DSeg for automated model selection.">
-<link rel="canonical" href="https://monai.io/core.html">
+<link rel="canonical" href="https://project-monai.github.io/core.html">
 
 <!-- Head Component -->
 <head>
@@ -31,19 +31,18 @@
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://monai.io/assets/img/MONAI-logo_color.png">
+    <meta property="og:image" content="https://project-monai.github.io/assets/img/MONAI-logo_color.png">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@ProjectMONAI">
-    <meta name="twitter:image" content="https://monai.io/assets/img/MONAI-logo_color.png">
+    <meta name="twitter:image" content="https://project-monai.github.io/assets/img/MONAI-logo_color.png">
     
     <!-- Favicon -->
     <link rel="shortcut icon" href="./assets/logo/MONAI-logo_favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="./assets/logo/MONAI-logo_favicon.png">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/animate.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/tailwind.css">
     
     <!-- Alpine.js -->
@@ -60,73 +59,8 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "MONAI",
-        "url": "https://monai.io",
-        "logo": "https://monai.io/assets/img/MONAI-logo_color.png",
-        "description": "MONAI is a freely available, community-supported, PyTorch-based framework for deep learning in healthcare imaging.",
-        "sameAs": [
-            "https://twitter.com/ProjectMONAI",
-            "https://medium.com/@monai",
-            "https://www.youtube.com/c/Project-MONAI",
-            "https://github.com/Project-MONAI"
-        ]
-    }
-    </script>
-    
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-</head> 
-<!-- Head Component -->
-<head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVGBCPFPJ6"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-QVGBCPFPJ6');
-    </script>
-
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- SEO Meta Tags -->
-    <meta name="keywords" content="MONAI, Medical Imaging, AI, Deep Learning, Healthcare, PyTorch, Open Source">
-    <meta name="author" content="Project MONAI">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://monai.io/assets/img/MONAI-logo_color.png">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@ProjectMONAI">
-    <meta name="twitter:image" content="https://monai.io/assets/img/MONAI-logo_color.png">
-    
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="./assets/logo/MONAI-logo_favicon.png" type="image/png">
-    <link rel="apple-touch-icon" href="./assets/logo/MONAI-logo_favicon.png">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/tailwind.css">
-    
-    <!-- Alpine.js -->
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    
-    <!-- Alpine.js x-cloak -->
-    <style>
-        [x-cloak] { display: none !important; }
-    </style>
-    
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "MONAI",
-        "url": "https://monai.io",
-        "logo": "https://monai.io/assets/img/MONAI-logo_color.png",
+        "url": "https://project-monai.github.io",
+        "logo": "https://project-monai.github.io/assets/img/MONAI-logo_color.png",
         "description": "MONAI is a freely available, community-supported, PyTorch-based framework for deep learning in healthcare imaging.",
         "sameAs": [
             "https://twitter.com/ProjectMONAI",
@@ -142,14 +76,128 @@
 </head> 
 
 <body class="flex flex-col min-h-screen">
-    <!-- Header Area wrapper Starts -->
+    <!-- Banner System -->
+<div x-data="bannerSystem()" x-init="init()">
+    <!-- Banner Container -->
+    <div x-show="activeBanner" 
+         x-ref="banner"
+         class="fixed top-0 left-0 right-0 text-white py-2 px-4 text-sm z-50"
+         :class="activeBanner ? activeBanner.bgColor : ''"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0">
+        <div class="container flex items-center justify-center gap-2">
+            <svg x-show="activeBanner && activeBanner.icon === 'check'" class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <svg x-show="activeBanner && activeBanner.icon === 'megaphone'" class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
+            </svg>
+            <span class="font-medium" x-text="activeBanner ? activeBanner.message : ''"></span>
+            <a x-show="activeBanner && activeBanner.link" 
+               :href="activeBanner ? activeBanner.link : '#'" 
+               target="_blank" 
+               class="underline hover:no-underline ml-1"
+               x-text="activeBanner ? activeBanner.linkText : ''"></a>
+            <button @click="dismissBanner()" 
+                    class="ml-4 hover:opacity-80 transition-opacity" 
+                    aria-label="Dismiss banner">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+function bannerSystem() {
+    return {
+        banners: [
+            {
+                id: 'monai_core_v1.5.1',
+                message: 'MONAI Core v1.5.1 is now available!',
+                link: 'https://monai.readthedocs.io/en/stable/whatsnew_1_5_1.html',
+                linkText: 'See what\'s new →',
+                bgColor: 'bg-brand-primary',
+                icon: 'check',
+                priority: 1
+            }
+        ],
+        activeBanner: null,
+        bannerHeight: 0,
+
+        init() {
+            this.selectActiveBanner();
+            this.$nextTick(() => {
+                if (this.activeBanner && this.$refs.banner) {
+                    this.bannerHeight = this.$refs.banner.offsetHeight;
+                    this.updateBodyPadding();
+                    this.updateNavPosition();
+                }
+            });
+        },
+
+        selectActiveBanner() {
+            // Filter out dismissed banners and sort by priority
+            const availableBanners = this.banners
+                .filter(banner => localStorage.getItem(`hideBanner_${banner.id}`) !== 'true')
+                .sort((a, b) => b.priority - a.priority);
+            
+            this.activeBanner = availableBanners[0] || null;
+            
+            // Dispatch event for header to know if banner is visible
+            window.dispatchEvent(new CustomEvent('banner-visibility-changed', { 
+                detail: { visible: !!this.activeBanner } 
+            }));
+        },
+
+        dismissBanner() {
+            if (this.activeBanner) {
+                localStorage.setItem(`hideBanner_${this.activeBanner.id}`, 'true');
+                this.activeBanner = null;
+                this.bannerHeight = 0;
+                this.updateBodyPadding();
+                this.updateNavPosition();
+                window.dispatchEvent(new CustomEvent('banner-visibility-changed', { 
+                    detail: { visible: false, height: 0 } 
+                }));
+            }
+        },
+
+        updateBodyPadding() {
+            const mainElement = document.querySelector('main');
+            if (mainElement) {
+                if (this.activeBanner) {
+                    mainElement.style.paddingTop = `calc(4rem + ${this.bannerHeight}px)`;
+                } else {
+                    mainElement.style.paddingTop = '4rem';
+                }
+            }
+        },
+
+        updateNavPosition() {
+            const navElement = document.querySelector('.navigation');
+            if (navElement) {
+                if (this.activeBanner && this.bannerHeight) {
+                    navElement.style.top = `${this.bannerHeight}px`;
+                } else {
+                    navElement.style.top = '0';
+                }
+            }
+        }
+    }
+}
+</script>
+
+<!-- Header Area wrapper Starts -->
 <header id="header-wrap" class="relative">
   <!-- Navbar Start -->
-  <div class="navigation fixed top-0 left-0 w-full z-30 duration-300 bg-white border-b border-gray-100">
+  <div class="navigation fixed top-0 left-0 w-full z-40 duration-300 bg-white border-b border-gray-100 transition-all">
     <div class="container">
       <nav class="navbar flex justify-between items-center relative duration-300 h-16" x-data="{ isOpen: false, frameworksOpen: false, communityOpen: false }">
         <a class="navbar-brand" href="index.html">
-          <img class="h-12 w-auto" src="assets/img/MONAI-logo_color.png" alt="Logo">
+          <img class="h-12 w-auto" src="assets/img/MONAI-logo_color_full.png" alt="Logo">
         </a>
         <button class="navbar-toggler focus:outline-none block lg:hidden p-2" type="button" @click="isOpen = !isOpen">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -202,9 +250,10 @@
                    x-transition:enter-end="opacity-100 translate-y-0"
                    x-cloak>
                 <div class="flex flex-col space-y-2">
-                  <a href="https://github.com/Project-MONAI" target="_blank" class="px-3 py-2 rounded-md transition-colors hover:bg-gray-50 hover:text-brand-primary">GitHub</a>
-                  <a href="https://join.slack.com/t/projectmonai/shared_invite/zt-2t7z8e9tu-xE5SPw0TC8LUxyPVpl2WVQ" target="_blank" class="px-3 py-2 rounded-md transition-colors hover:bg-gray-50 hover:text-brand-primary">Join Slack</a>
                   <a href="about.html" class="px-3 py-2 rounded-md transition-colors hover:bg-gray-50 hover:text-brand-primary">About Us</a>
+                  <a href="successstories.html" class="px-3 py-2 rounded-md transition-colors hover:bg-gray-50 hover:text-brand-primary">Success Stories</a>
+                  <a href="https://github.com/Project-MONAI" target="_blank" class="px-3 py-2 rounded-md transition-colors hover:bg-gray-50 hover:text-brand-primary">GitHub</a>
+                  <a href="https://join.slack.com/t/projectmonai/shared_invite/zt-3hucgm02q-i8Bn9XofDZs2UGOH4jUl4w" target="_blank" class="px-3 py-2 rounded-md transition-colors hover:bg-gray-50 hover:text-brand-primary">Join Slack</a>
                   <div class="border-t border-gray-100 mt-2 pt-2">
                     <div class="grid grid-cols-2 gap-1">
                       <a href="https://twitter.com/ProjectMONAI" target="_blank" class="px-3 py-2 rounded-md transition-colors hover:bg-gray-50 hover:text-brand-primary">Twitter</a>
@@ -225,15 +274,15 @@
 </header>
 <!-- Header Area wrapper End --> 
 
-    <main class="flex-grow pt-20">
+
+    <main class="flex-grow pt-16">
         <!-- Overview Section -->
         <section id="overview" class="py-24 bg-white">
             <div class="container">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     <div class="max-w-xl">
-                        <h1 class="text-4xl font-bold text-gray-800 mb-8 relative inline-block pb-2">
+                        <h1 class="text-4xl font-bold text-gray-800 mb-8">
                             MONAI Core
-                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-primary"></span>
                         </h1>
                         <p class="text-lg text-gray-600 leading-relaxed mb-8">
                             MONAI Core is a freely available, community-supported, PyTorch-based framework for deep learning in healthcare imaging. It provides domain-optimized foundational capabilities for developing healthcare imaging training workflows in a native PyTorch paradigm.
@@ -245,7 +294,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                                 </svg>
                             </a>
-                            <a href="https://docs.monai.io/en/stable/" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 rounded-lg bg-white text-brand-primary border-2 border-brand-primary hover:bg-brand-light transition-colors inline-flex items-center gap-2 group">
+                            <a href="https://monai.readthedocs.io/en/stable/" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 rounded-lg bg-white text-brand-primary border-2 border-brand-primary hover:bg-brand-light transition-colors inline-flex items-center gap-2 group">
                                 Documentation
                                 <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -267,12 +316,11 @@
         </section>
 
         <!-- Features Section -->
-        <section class="py-24 bg-brand-dark/15">
-            <div class="container px-4 sm:px-6 lg:px-8">
+        <section class="py-24 bg-brand-light">
+            <div class="container">
                 <div class="text-center max-w-4xl mx-auto mb-16">
-                    <h2 class="text-4xl font-bold text-gray-800 mb-8 relative inline-block pb-2">
+                    <h2 class="text-3xl font-bold text-neutral-darkestblack mb-8">
                         Research & Development Tools
-                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-primary"></span>
                     </h2>
                     <p class="text-xl text-gray-600">
                         MONAI Core provides a comprehensive toolkit that bridges research innovation and clinical application. Our tools are designed for both researchers pushing the boundaries of medical AI and clinicians seeking practical solutions.
@@ -416,12 +464,11 @@
         </section>
 
         <!-- Components Section -->
-        <section id="getting-started" class="py-24 bg-white">
+        <section id="getting-started" class="py-24 bg-neutral-lightgray">
             <div class="container">
                 <div class="text-center max-w-4xl mx-auto mb-16">
-                    <h2 class="text-4xl font-bold text-gray-800 mb-8 relative inline-block pb-2">
+                    <h2 class="text-3xl font-bold text-neutral-darkestblack mb-8">
                         Modular Components
-                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-primary"></span>
                     </h2>
                     <p class="text-xl text-gray-600">
                         Built on PyTorch, MONAI Core provides composable transforms, standardized interfaces, and validated implementations. Import only what you need or use our end-to-end workflows.
@@ -434,7 +481,7 @@
                             <h3 class="text-xl font-bold text-gray-800 mb-6">Core Components</h3>
                             <div class="grid grid-cols-2 gap-6">
                                 <div class="space-y-4">
-                                    <a href="https://docs.monai.io/en/stable/metrics.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                                    <a href="https://monai.readthedocs.io/en/stable/metrics.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                                         <div class="flex items-center justify-between">
                                             <div>
                                                 <h3 class="font-semibold text-gray-800 group-hover:text-brand-primary">Metrics</h3>
@@ -445,7 +492,7 @@
                                             </svg>
                                         </div>
                                     </a>
-                                    <a href="https://docs.monai.io/en/stable/losses.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                                    <a href="https://monai.readthedocs.io/en/stable/losses.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                                         <div class="flex items-center justify-between">
                                             <div>
                                                 <h3 class="font-semibold text-gray-800 group-hover:text-brand-primary">Losses</h3>
@@ -456,7 +503,7 @@
                                             </svg>
                                         </div>
                                     </a>
-                                    <a href="https://docs.monai.io/en/stable/networks.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                                    <a href="https://monai.readthedocs.io/en/stable/networks.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                                         <div class="flex items-center justify-between">
                                             <div>
                                                 <h3 class="font-semibold text-gray-800 group-hover:text-brand-primary">Networks</h3>
@@ -467,7 +514,7 @@
                                             </svg>
                                         </div>
                                     </a>
-                                    <a href="https://docs.monai.io/en/stable/apps.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                                    <a href="https://monai.readthedocs.io/en/stable/apps.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                                         <div class="flex items-center justify-between">
                                             <div>
                                                 <h3 class="font-semibold text-gray-800 group-hover:text-brand-primary">Applications</h3>
@@ -478,7 +525,7 @@
                                             </svg>
                                         </div>
                                     </a>
-                                    <a href="https://docs.monai.io/en/stable/data.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                                    <a href="https://monai.readthedocs.io/en/stable/data.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                                         <div class="flex items-center justify-between">
                                             <div>
                                                 <h3 class="font-semibold text-gray-800 group-hover:text-brand-primary">Datasets</h3>
@@ -491,7 +538,7 @@
                                     </a>
                                 </div>
                                 <div class="space-y-4">
-                                    <a href="https://docs.monai.io/en/stable/transforms.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                                    <a href="https://monai.readthedocs.io/en/stable/transforms.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                                         <div class="flex items-center justify-between">
                                             <div>
                                                 <h3 class="font-semibold text-gray-800 group-hover:text-brand-primary">Transforms</h3>
@@ -502,7 +549,7 @@
                                             </svg>
                                         </div>
                                     </a>
-                                    <a href="https://docs.monai.io/en/stable/optimizers.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                                    <a href="https://monai.readthedocs.io/en/stable/optimizers.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                                         <div class="flex items-center justify-between">
                                             <div>
                                                 <h3 class="font-semibold text-gray-800 group-hover:text-brand-primary">Optimizers</h3>
@@ -513,7 +560,7 @@
                                             </svg>
                                         </div>
                                     </a>
-                                    <a href="https://docs.monai.io/en/stable/inferers.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                                    <a href="https://monai.readthedocs.io/en/stable/inferers.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                                         <div class="flex items-center justify-between">
                                             <div>
                                                 <h3 class="font-semibold text-gray-800 group-hover:text-brand-primary">Inferers</h3>
@@ -524,7 +571,7 @@
                                             </svg>
                                         </div>
                                     </a>
-                                    <a href="https://docs.monai.io/en/stable/visualize.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                                    <a href="https://monai.readthedocs.io/en/stable/visualize.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                                         <div class="flex items-center justify-between">
                                             <div>
                                                 <h3 class="font-semibold text-gray-800 group-hover:text-brand-primary">Visualization</h3>
@@ -535,7 +582,7 @@
                                             </svg>
                                         </div>
                                     </a>
-                                    <a href="https://docs.monai.io/en/stable/utils.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                                    <a href="https://monai.readthedocs.io/en/stable/utils.html" target="_blank" class="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                                         <div class="flex items-center justify-between">
                                             <div>
                                                 <h3 class="font-semibold text-gray-800 group-hover:text-brand-primary">Utils</h3>
@@ -597,12 +644,11 @@ image = transforms(image_path)</code>
         </section>
 
         <!-- Auto3DSeg Section -->
-        <section class="py-24 bg-brand-dark/15">
+        <section class="py-24 bg-white">
             <div class="container">
                 <div class="text-center max-w-4xl mx-auto mb-16">
-                    <h2 class="text-4xl font-bold text-gray-800 mb-8 relative inline-block pb-2">
+                    <h2 class="text-3xl font-bold text-neutral-darkestblack mb-8">
                         Auto3DSeg: State-of-the-Art Medical Segmentation
-                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-primary"></span>
                     </h2>
                     <p class="text-xl text-gray-600">
                         Achieve hassle-free, state-of-the-art performance in 3D medical image segmentation with MONAI's automated solution for both novice and expert users.
@@ -709,12 +755,11 @@ image = transforms(image_path)</code>
         </section>
 
         <!-- Research Impact Section -->
-        <section class="py-24 bg-white">
+        <section class="py-24 bg-brand-light">
             <div class="container">
                 <div class="text-center max-w-4xl mx-auto mb-16">
-                    <h2 class="text-4xl font-bold text-gray-800 mb-8 relative inline-block pb-2">
+                    <h2 class="text-3xl font-bold text-neutral-darkestblack mb-8">
                         Research Impact
-                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-primary"></span>
                     </h2>
                     <p class="text-xl text-gray-600">
                         MONAI Core is trusted by researchers worldwide, powering breakthrough discoveries in medical AI.
@@ -777,12 +822,11 @@ image = transforms(image_path)</code>
         </section>
 
         <!-- Citation Section -->
-        <section class="py-24 bg-brand-dark/15">
+        <section class="py-24 bg-neutral-lightgray">
             <div class="container">
                 <div class="text-center max-w-4xl mx-auto mb-16">
-                    <h2 class="text-4xl font-bold text-gray-800 mb-8 relative inline-block pb-2">
+                    <h2 class="text-3xl font-bold text-neutral-darkestblack mb-8">
                         How to Cite MONAI Core
-                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-primary"></span>
                     </h2>
                     <p class="text-xl text-gray-600">
                         If you use MONAI in your research, please cite our paper:
@@ -822,9 +866,8 @@ image = transforms(image_path)</code>
         <section class="py-24 bg-white">
             <div class="container">
                 <div class="text-center max-w-4xl mx-auto mb-16">
-                    <h2 class="text-4xl font-bold text-gray-800 mb-8 relative inline-block pb-2">
+                    <h2 class="text-3xl font-bold text-neutral-darkestblack mb-8">
                         Get Involved in the Community
-                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-primary"></span>
                     </h2>
                     <p class="text-xl text-gray-600">
                         Join our growing community of researchers, developers, and healthcare professionals. Get help, share your work, and contribute to advancing medical AI.
@@ -844,7 +887,7 @@ image = transforms(image_path)</code>
                             <p class="text-gray-600">Access comprehensive documentation covering everything from basic concepts to advanced implementations.</p>
                         </div>
                         <div class="mt-6">
-                            <a href="https://docs.monai.io/en/latest/index.html" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 rounded-lg bg-white text-brand-primary border-2 border-brand-primary hover:bg-brand-light transition-colors inline-flex items-center gap-2 group">
+                            <a href="https://monai.readthedocs.io/en/latest/index.html" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 rounded-lg bg-white text-brand-primary border-2 border-brand-primary hover:bg-brand-light transition-colors inline-flex items-center gap-2 group">
                                 Deep Dive
                                 <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -886,7 +929,7 @@ image = transforms(image_path)</code>
                             <p class="text-gray-600">Connect with the MONAI community on Slack. Get help, share ideas, and collaborate with others.</p>
                         </div>
                         <div class="mt-6">
-                            <a href="https://forms.gle/93Zk6PX1bGGJqbRi6" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 rounded-lg bg-white text-brand-primary border-2 border-brand-primary hover:bg-brand-light transition-colors inline-flex items-center gap-2 group">
+                            <a href="https://join.slack.com/t/projectmonai/shared_invite/zt-3hucgm02q-i8Bn9XofDZs2UGOH4jUl4w" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 rounded-lg bg-white text-brand-primary border-2 border-brand-primary hover:bg-brand-light transition-colors inline-flex items-center gap-2 group">
                                 Join Slack
                                 <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -921,7 +964,7 @@ image = transforms(image_path)</code>
     </main>
 
     <!-- Footer Component -->
-<footer id="footer" class="py-2 border-t border-neutral-light_gray">
+<footer id="footer" class="py-2 border-t border-neutral-lightgray">
   <div class="container">
     <div class="flex flex-wrap items-center justify-between gap-4">
       <!-- Logo Section -->
@@ -996,15 +1039,9 @@ image = transforms(image_path)</code>
 </footer>
     <!-- Scripts Component -->
 <!-- Common JavaScript Files -->
-<script src="./assets/js/wow.js"></script>
 <script src="./assets/js/particles.min.js"></script>
 <script src="./assets/js/countUp.min.js"></script>
 <script src="./assets/js/main.js"></script>
-
-<!-- Initialize WOW.js -->
-<script>
-    new WOW().init();
-</script>
 
 <!-- Performance Optimizations -->
 <script>
@@ -1033,8 +1070,7 @@ image = transforms(image_path)</code>
     // Preload critical resources
     const preloadLinks = [
         './assets/css/tailwind.css',
-        './assets/css/animate.css',
-        './assets/img/MONAI-logo_color.png'
+        './assets/img/MONAI-logo_color_full.png'
     ];
 
     preloadLinks.forEach(link => {
